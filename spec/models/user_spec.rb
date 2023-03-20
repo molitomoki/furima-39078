@@ -55,7 +55,7 @@ require 'rails_helper'
           @user.valid?
           expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
         end
-        #お名前(全角)は、名字と名前がそれぞれ必須であること
+        
         it 'お名前(全角)は、名字が必須であること' do
           @user.last_name = ''
           @user.valid?
@@ -66,7 +66,7 @@ require 'rails_helper'
           @user.valid?
           expect(@user.errors.full_messages).to include("First name can't be blank")
         end
-        #お名前(全角)は、全角（漢字・ひらがな・カタカナ）での入力が必須であること
+        
         it 'お名前(全角)の名字は、全角（漢字・ひらがな・カタカナ）での入力が必須であること' do
           @user.last_name = 'yamada'
           @user.valid?
@@ -77,7 +77,7 @@ require 'rails_helper'
           @user.valid?
           expect(@user.errors.full_messages).to include("First name には全角文字を使用してください")
         end
-        #お名前カナ(全角)は、名字と名前がそれぞれ必須であること
+        
         it 'お名前カナ(全角)は、名字が必須であること' do
           @user.last_name_reading = ''
           @user.valid?
@@ -88,7 +88,7 @@ require 'rails_helper'
           @user.valid?
           expect(@user.errors.full_messages).to include("First name reading can't be blank")
         end
-        #お名前カナ(全角)は、全角（カタカナ）での入力が必須であること
+        
         it 'お名前(全角)の名字は、全角（カタカナ）での入力が必須であること' do
           @user.last_name_reading = '山だ'
           @user.valid?
