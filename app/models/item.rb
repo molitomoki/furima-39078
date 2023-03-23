@@ -4,17 +4,9 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :shipping_fee_status
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :scheduled_delivery
 
   validates :image, :name, :info, :price, presence: true
