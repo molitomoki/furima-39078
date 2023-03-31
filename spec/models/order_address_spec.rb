@@ -27,7 +27,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'prefectureを選択していないと保存できないこと' do
         @order_address.prefecture_id = 1
@@ -52,22 +52,22 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numberが全角数字だと保存できないこと' do
         @order_address.phone_number = '０９０１２３４５６７８'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is invalid. Input only half-width number")
+        expect(@order_address.errors.full_messages).to include('Phone number is invalid. Input only half-width number')
       end
       it 'phone_numberがハイフンを含むと保存できないこと' do
         @order_address.phone_number = '090-1234-5678'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is invalid. Input only half-width number")
+        expect(@order_address.errors.full_messages).to include('Phone number is invalid. Input only half-width number')
       end
       it 'phone_numberが10桁以上11桁以内でないと保存できないこと（9桁の場合）' do
-        @order_address.phone_number = 123456789
+        @order_address.phone_number = 123_456_789
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is invalid. Input only half-width number")
+        expect(@order_address.errors.full_messages).to include('Phone number is invalid. Input only half-width number')
       end
       it 'phone_numberが10桁以上11桁以内でないと保存できないこと（12桁の場合）' do
-        @order_address.phone_number = 123456789012
+        @order_address.phone_number = 123_456_789_012
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is invalid. Input only half-width number")
+        expect(@order_address.errors.full_messages).to include('Phone number is invalid. Input only half-width number')
       end
       it 'userが紐付いていないと保存できないこと' do
         @order_address.user_id = nil
@@ -79,7 +79,7 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @order_address.token = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
