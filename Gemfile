@@ -77,4 +77,7 @@ gem 'payjp'
 
 gem 'mail', '2.7.1'
 
+gem "aws-sdk-s3", require: false
+
+
 
